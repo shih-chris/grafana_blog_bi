@@ -1,0 +1,52 @@
+version: 2
+
+models:
+    - name: utils_date
+      description: "A list of dates with details from 2010 - 2050"
+      columns:
+          - name: date_stamp
+            description: "The primary key for this table and date's name"
+            tests:
+                - unique
+                - not_null
+
+          - name: year
+            description: "Extracted year from date"
+
+          - name: week_of_year
+            description: "Week number of the date in the range [0, 53]. Weeks begin with Sunday, and dates prior to the first Sunday of the year are in week 0"
+
+          - name: day_of_year
+            description: "Day number in the year"
+
+          - name: quarter
+            description: "Extracted quarter from date"
+
+          - name: month
+            description: "Extracted month from date"
+
+          - name: day_of_month
+            description: "Day number in the month"
+
+          - name: is_last_day_of_month
+            description: "Boolean that returns if the date is the last in the month"
+            test:
+              - accepted_values:
+                  values: [TRUE, FALSE]
+                  quotes: false
+
+          - name: month_name
+            description: "Extracted name of month from date"
+
+          - name: day_of_week
+            description: "Day number in the week starting at 1 on Sunday"
+
+          - name: day_name
+            description: "Day name [Sunday, Monday, Tuesday, ..., Saturday]"
+
+          - name: is_weekday
+            description: "Boolean that returns 1 if weekday and 0 if weekend [Saturday, Sunday]"
+            test:
+                - accepted_values:
+                    values: [TRUE, FALSE]
+                    quotes: false
