@@ -1,0 +1,16 @@
+version: 2
+
+models:
+
+    # Citibike Trips
+    - name: stg_citibike_trips
+      description: >
+        Per Google BigQuery: Citi Bike is the nation's largest bike share program, with 10,000 bikes and 600 stations across Manhattan, Brooklyn, Queens, and Jersey City. This dataset includes Citi Bike trips since Citi Bike launched in September 2013 and is updated daily. THe data is processed by Citi Bike to remove trips that are taken by staff to service and inspect the system and any trips below 60 seconds in length, which are considered false starts.
+      
+      columns:
+        - name: trip_id
+          description: Syndicated primary key based on bike_id, start_station, trip_started_at, and trip_ended_at
+          tests:
+            - not_null
+            - unique
+          

@@ -3,4 +3,66 @@ version: 2
 sources:
 
     - name: new_york_citibike
-    
+      database: grafanablog
+      schema: new_york_citibike
+
+      tables:
+
+        - name: citibike_trips
+          columns:
+            - name: tripduration
+              description: Duration of the trip in seconds
+              tests:
+                - not_null
+            
+            - name: starttime
+              description: Start time of the trip
+            
+            - name: stoptime
+              description: Stop time of the trip
+            
+            - name: start_station_name
+              description: Name of the station where the trip started
+
+            - name: start_station_id
+              description: Foreign key to citibike_stations (not modelled)
+            
+            - name: start_station_latitude
+              description: Start station latitude
+            
+            - name: start_station_longitude
+              description: Start station longitude
+            
+            - name: end_station_name
+              description: Name of the station where the trip ended
+
+            - name: end_station_id
+              description: Foreign key to citibike_stations (not modelled)
+            
+            - name: end_station_latitude
+              description: Ending station latitude
+            
+            - name: end_station_longitude
+              description: Ending station longitude
+            
+            - name: bikeid
+              description: Foreign key to some bike data (not in BQ public data)
+            
+            - name: usertype
+              description: Citibike user type (Subscription / Customer)
+              tests:
+                - not_null
+                - accepted_values:
+                    values: [Subscriber, Customer]
+            
+            - name: birth_year
+              description: Year of birth of rider
+
+            - name: gender
+              description: Gender of rider
+
+            - name: customer_plan
+              description: Null column, presumably held Citibike customer plans types
+
+
+            
