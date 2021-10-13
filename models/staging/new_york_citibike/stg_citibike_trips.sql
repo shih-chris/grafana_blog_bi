@@ -7,7 +7,7 @@ source as (
 
     -- limit amount of data stored / processed in dev
     {% if target.name == 'dev' %}
-    where date(starttime) >= '2018-01-01'
+    where date(starttime) >= '2018-05-01'
     {% endif %}
 
 ),
