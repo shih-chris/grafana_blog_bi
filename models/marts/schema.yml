@@ -8,3 +8,7 @@ models:
     columns:
       - name: date_stamp
         description: Month start date
+        tests:
+          - not_null
+          - unique
+          
