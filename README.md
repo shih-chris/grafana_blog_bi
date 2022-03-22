@@ -1,15 +1,14 @@
-Welcome to your new dbt project!
+Welcome to our example dbt project for using Grafana for Business Intelligence!
 
-### Using the starter project
+### Overview
 
-Try running the following commands:
-- dbt run
-- dbt test
+Data source:
+- Our data is coming from BigQuery's bigquery-plubic-data
+- In particular, we are going to be visualizing the new_york_citibike dataset
 
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Visualization:
+- At Grafana Labs we use Grafana as our visualization layer
+- This example will show how 
+    1. dbt models can facilitate Grafana panel data
+    2. We can connect Grafana to our tables using the new (beta) [Google Bigquery Plugin](https://grafana.com/grafana/plugins/grafana-bigquery-datasource/)
+    
