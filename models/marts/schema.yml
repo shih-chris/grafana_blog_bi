@@ -2,9 +2,9 @@ version: 2
 
 models:
 
-  - name: trip_stats_monthly
-    description: Monthly roll-up of Citibike trip stats
+  - name: agg_trip_stats_daily
+    description: Daily roll-up of Citibike trip stats
 
     columns:
       - name: date_stamp
-        description: Month start date
+        description: Date for daily rollup based on trip start time
