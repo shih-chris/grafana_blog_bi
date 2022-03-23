@@ -5,10 +5,8 @@ source as (
     select *
     from {{ source('new_york_citibike', 'citibike_trips') }}
 
-    -- limit amount of data stored / processed in dev
-    {% if target.name == 'dev' %}
-    where date(starttime) >= '2018-01-01'
-    {% endif %}
+    -- limit amount of data stored / processed for our example
+    where date(starttime) between '2017-04-01' and '2018-05-31'
 
 ),
 
@@ -46,7 +44,12 @@ renamed as (
 final as (
 
     select
-        md5(bike_id || start_station_id || trip_started_at || trip_ended_at) as trip_id
+        {{ dbt_utils.surrogate_key([
+            'bike_id',
+            'start_station_id',
+            'trip_started_at',
+            'trip_ended_at'
+        ]) }} as trip_id
         ,renamed.*
     from
         renamed

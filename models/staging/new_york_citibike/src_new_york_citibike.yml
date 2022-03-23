@@ -3,7 +3,7 @@ version: 2
 sources:
 
     - name: new_york_citibike
-      database: grafanablog
+      database: bigquery-public-data
       schema: new_york_citibike
 
       tables:

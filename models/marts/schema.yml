@@ -2,9 +2,40 @@ version: 2
 
 models:
 
-  - name: trip_stats_monthly
-    description: Monthly roll-up of Citibike trip stats
+  - name: agg_trips_by_user_type_daily
+    description: Daily roll-up of Citibike trip stats by user_type
 
     columns:
       - name: date_stamp
-        description: Month start date
+        description: Date for daily rollup based on trip start time
+        tests:
+          - not_null
+
+  - name: agg_trips_by_station_daily
+    description: Daily roll-up of Citibike trip stats by station
+
+    columns:
+      - name: date_stamp
+        description: Date for daily rollup based on trip start time
+        tests:
+          - not_null
+
+  - name: dim_users
+    description: Dimension table including the latest record of a bike_id's birth_year and gender
+
+    columns:
+      - name: bike_id
+        description: User's primary key
+        tests:
+          - not_null
+          - unique
+
+  - name: fct_trips
+    description: Fact table including details on each trip
+
+    columns:
+      - name: trip_id
+        description: Surrogate key created with bike_id, start_station_id, trip_started_at, and trip_ended_at
+        tests:
+          - not_null
+          - unique
