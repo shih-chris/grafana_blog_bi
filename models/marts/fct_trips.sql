@@ -25,7 +25,8 @@ final as (
         ,utils_date.date_stamp
         ,citibike_trips.trip_started_at
         ,citibike_trips.trip_ended_at
-        ,citibike_trips.trip_duration
+        ,citibike_trips.trip_duration_seconds
+        ,round(citibike_trips.trip_duration_seconds / 60, 2) as trip_duration_minutes
         ,citibike_trips.user_type
 
         -- Date / Time details

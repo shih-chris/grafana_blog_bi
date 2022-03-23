@@ -30,8 +30,8 @@ starting_trips as (
 
         -- daily trip details
         ,count(distinct fct_trips.trip_id) as total_trips
-        ,sum(fct_trips.trip_duration) as total_trip_duration
-        ,sum(fct_trips.trip_duration) / count(distinct fct_trips.trip_id) as average_trip_duration
+        ,sum(fct_trips.trip_duration_minutes) as total_trip_duration_minutes
+        ,sum(fct_trips.trip_duration_minutes) / count(distinct fct_trips.trip_id) as average_trip_duration_minutes
 
     from
         fct_trips
@@ -48,8 +48,8 @@ ending_trips as (
 
         -- daily trip details
         ,count(distinct fct_trips.trip_id) as total_trips
-        ,sum(fct_trips.trip_duration) as total_trip_duration
-        ,sum(fct_trips.trip_duration) / count(distinct fct_trips.trip_id) as average_trip_duration
+        ,sum(fct_trips.trip_duration_minutes) as total_trip_duration_minutes
+        ,sum(fct_trips.trip_duration_minutes) / count(distinct fct_trips.trip_id) as average_trip_duration_minutes
 
     from
         fct_trips
@@ -74,12 +74,12 @@ final as (
 
         -- trip metrics
         ,starting_trips.total_trips as starting_trips
-        ,starting_trips.total_trip_duration as starting_trip_duration
-        ,starting_trips.average_trip_duration as starting_average_trip_duration
+        ,starting_trips.total_trip_duration_minutes as starting_trip_duration_minutes
+        ,starting_trips.average_trip_duration_minutes as starting_average_trip_duration_minutes
 
         ,ending_trips.total_trips as ending_trips
-        ,ending_trips.total_trip_duration as ending_trip_duration
-        ,ending_trips.average_trip_duration as ending_average_trip_duration
+        ,ending_trips.total_trip_duration_minutes as ending_trip_duration_minutes
+        ,ending_trips.average_trip_duration_minutes as ending_average_trip_duration_minutes
 
     from
         dim_stations
