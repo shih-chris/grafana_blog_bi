@@ -20,7 +20,7 @@ renamed as (
         ,safe_cast(gender as string) as gender
 
         -- Trip details
-        ,safe_cast(tripduration as int) as trip_duration
+        ,safe_cast(tripduration as int) as trip_duration_seconds
         ,safe_cast(starttime as datetime) as trip_started_at
         ,safe_cast(stoptime as datetime) as trip_ended_at
 
