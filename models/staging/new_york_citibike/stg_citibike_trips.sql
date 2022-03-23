@@ -44,7 +44,12 @@ renamed as (
 final as (
 
     select
-        md5(bike_id || start_station_id || trip_started_at || trip_ended_at) as trip_id
+        {{ dbt_utils.surrogate_key([
+            'bike_id',
+            'start_station_id',
+            'trip_started_at',
+            'trip_ended_at'
+        ]) }} as trip_id
         ,renamed.*
     from
         renamed

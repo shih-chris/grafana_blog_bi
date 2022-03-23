@@ -9,6 +9,18 @@ models:
       
       columns:
         - name: trip_id
+          description: Surrogate primary key based on bike_id, start_station, trip_started_at, and trip_ended_at
+          tests:
+            - not_null
+            - unique
+          
+    # Citibike Stations
+    - name: stg_citibike_stations
+      description: >
+        Citibike station details from bigquery-public-data
+      
+      columns:
+        - name: trip_id
           description: Syndicated primary key based on bike_id, start_station, trip_started_at, and trip_ended_at
           tests:
             - not_null
