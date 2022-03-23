@@ -5,10 +5,8 @@ source as (
     select *
     from {{ source('new_york_citibike', 'citibike_trips') }}
 
-    -- limit amount of data stored / processed in dev
-    {% if target.name == 'dev' %}
-    where date(starttime) >= '2018-05-01'
-    {% endif %}
+    -- limit amount of data stored / processed for our example
+    where date(starttime) between '2017-04-01' and '2018-05-31'
 
 ),
 
