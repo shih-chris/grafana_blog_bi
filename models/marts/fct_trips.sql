@@ -37,6 +37,10 @@ final as (
         ,citibike_trips.start_station_id
         ,citibike_trips.end_station_id
 
+        -- Rider details
+        ,citibike_trips.gender as rider_gender
+        ,date_diff(utils_date.date_stamp, parse_date('%Y', citibike_trips.birth_year), year) as rider_age
+
     from
         citibike_trips
         inner join utils_date on date_trunc(citibike_trips.trip_started_at, day) = utils_date.date_stamp
