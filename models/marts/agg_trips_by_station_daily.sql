@@ -25,7 +25,7 @@ utils_date as (
 starting_trips as (
 
     select
-        fct_trips.start_station_id
+        fct_trips.starting_station_id
         ,fct_trips.date_stamp
 
         -- daily trip details
@@ -43,7 +43,7 @@ starting_trips as (
 ending_trips as (
 
     select
-        fct_trips.end_station_id
+        fct_trips.ending_station_id
         ,fct_trips.date_stamp
 
         -- daily trip details
@@ -85,10 +85,10 @@ final as (
         dim_stations
         cross join utils_date
         left join starting_trips
-            on dim_stations.station_id = starting_trips.start_station_id
+            on dim_stations.station_id = starting_trips.starting_station_id
             and utils_date.date_stamp = starting_trips.date_stamp
         left join ending_trips
-            on dim_stations.station_id = ending_trips.start_station_id
+            on dim_stations.station_id = ending_trips.ending_station_id
             and utils_date.date_stamp = ending_trips.date_stamp
 
 )

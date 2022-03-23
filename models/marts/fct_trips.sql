@@ -40,7 +40,7 @@ final as (
 
         -- Rider details
         ,citibike_trips.gender as rider_gender
-        ,date_diff(utils_date.date_stamp, parse_date('%Y', citibike_trips.birth_year), year) as rider_age
+        ,date_diff(utils_date.date_stamp, parse_date('%Y', cast(citibike_trips.birth_year as string)), year) as rider_age
 
     from
         citibike_trips
