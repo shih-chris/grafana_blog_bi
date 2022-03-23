@@ -3,7 +3,7 @@ with
 citibike_trips as (
 
     select *
-    from {{ ref('stg_new_york_citibike') }}
+    from {{ ref('stg_citibike_trips') }}
 
 ),
 
