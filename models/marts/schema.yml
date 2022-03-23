@@ -2,7 +2,6 @@ version: 2
 
 models:
 
-<<<<<<< HEAD
   - name: agg_trips_by_user_type_daily
     description: Daily roll-up of Citibike trip stats by user_type
 
