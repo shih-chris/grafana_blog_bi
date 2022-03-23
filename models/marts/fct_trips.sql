@@ -26,12 +26,15 @@ final as (
         ,citibike_trips.bike_id
 
         -- Trip details
-        ,citibike_trips.trip_duration
+        ,utils_date.date_stamp
         ,citibike_trips.trip_started_at
         ,citibike_trips.trip_ended_at
+        ,citibike_trips.trip_duration
+        ,citibike_trips.user_type
 
         -- Date / Time details
         ,utils_date.month_start_date
+        ,utils_date.day_name
         ,utils_date.is_weekday
 
         -- Station ids
@@ -41,7 +44,6 @@ final as (
     from
         citibike_trips
         inner join utils_date on date_trunc(citibike_trips.trip_started_at, day) = utils_date.date_stamp
-
 
 )
 
