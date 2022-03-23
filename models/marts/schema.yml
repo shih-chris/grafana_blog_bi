@@ -2,13 +2,23 @@ version: 2
 
 models:
 
-  - name: agg_trip_stats_daily
-    description: Daily roll-up of Citibike trip stats
+  - name: agg_trips_by_user_type_daily
+    description: Daily roll-up of Citibike trip stats by user_type
 
     columns:
       - name: date_stamp
         description: Date for daily rollup based on trip start time
+        tests:
+          - not_null
 
+  - name: agg_trips_by_station_daily
+    description: Daily roll-up of Citibike trip stats by station
+
+    columns:
+      - name: date_stamp
+        description: Date for daily rollup based on trip start time
+        tests:
+          - not_null
 
   - name: dim_users
     description: Dimension table including the latest record of a bike_id's birth_year and gender
