@@ -64,5 +64,4 @@ sources:
             - name: customer_plan
               description: Null column, presumably held Citibike customer plans types
 
-
-            
+        - name: citibike_stations
