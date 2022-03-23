@@ -18,11 +18,7 @@ final as (
 
     select
         -- ids
-        {{ dbt_utils.surrogate_id([
-            'citibike_trips.bike_id'
-            ,'citibike_trips.start_station_id'
-            ,'citibike_trips.trip_started_at'
-        ]) }} as trip_id
+        citibike_trips.trip_id
         ,citibike_trips.bike_id
 
         -- Trip details
