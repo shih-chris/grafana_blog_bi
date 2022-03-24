@@ -20,6 +20,15 @@ models:
         tests:
           - not_null
 
+  - name: agg_trips_by_age_daily
+    description: Daily roll-up of Citibike trip stats by rider age
+
+    columns:
+      - name: date_stamp
+        description: Date for daily rollup based on trip start time
+        tests:
+          - not_null
+
   - name: dim_users
     description: Dimension table including the latest record of a bike_id's birth_year and gender
 
