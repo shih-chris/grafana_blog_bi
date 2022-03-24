@@ -61,8 +61,13 @@ ending_trips as (
 final as (
 
     select
+        -- date details
+        utils_date.date_stamp
+        ,utils_date.day_name
+        ,utils_date.is_weekday
+
         -- station details
-        dim_stations.station_id
+        ,dim_stations.station_id
         ,dim_stations.station_name
 
         ,dim_stations.station_latitude
